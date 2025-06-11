@@ -1,0 +1,209 @@
+Please translate the below HTML form structure into a Gradio interface using the Gradio Blocks API.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Solar Energy</title>
+</head>
+<body>
+    <form>
+        <h1>Solar Energy</h1>
+        <div id="Basic Simulation" class="tabcontent">
+            <table border="0">
+                <th colspan="2" align="left">
+                    <h3>Basic Simulation</h3>
+                </th>
+                <tr>
+                    <td>
+                        <label for="StartMonth">Start Month</label>
+                    </td>
+                    <td style="width:100px;">
+                        <select id="StartMonth">
+                            <option value="1">Jan</option>
+                            <option value="2">Feb</option>
+                            <option value="3">Mar</option>
+                            <option value="4">Apr</option>
+                            <option value="5">May</option>
+                            <option value="6">Jun</option>
+                            <option value="7">Jul</option>
+                            <option value="8">Aug</option>
+                            <option value="9">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="StartDay">Start Day</label>
+                    </td>
+                    <td style="width:100px;">
+                        <select id="StartDay">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="NumDays">Number of days (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="NumDays" name="NumDays" min="1" max="100" step="1" value="30">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="PanelArea">Panel Area SQM (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="PanelArea" name="PanelArea" min="1" max="100" step="1" value="25">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="PanelEff">Panel Efficiency (.01 to 1.0)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="PanelEff" name="PanelEff" min="0.01" max="1.00" step=".01" value=".2">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="StorageCap">Storage Capacity (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="StorageCap" name="StorageCap" min="1" max="100" step="1" value="10">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="BatteryEff">Battery Efficiency (.01 to 1.0)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="BatteryEff" name="BatteryEff" min="0.01" max="1.00" step=".01" value=".9">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="SysAge">System Age (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="SysAge" name="SysAge" min="0" max="100" step="1" value="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left">
+                        <input type="checkbox" id="includeClouds" name="includeClouds" value="1">
+                        <label for="includeClouds"> Include Cloud Effects</label>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <button type="button" id="RunSimulation" name="RunSimulation">Run Simulation</button>     
+        </div>
+        <div id="Parameter Exploration" class="tabcontent">
+            <table border="0">
+                <th colspan="2" align="left">
+                    <h3>Parameter Exploration</h3>
+                </th>
+                <tr>
+                    <td>
+                        <label for="MinPanelArea">Min Panel Area (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="MinPanelArea" name="MinPanelArea" min="1" max="100" step="1" value="10">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="MaxPanelArea">Max Panel Area (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="MaxPanelArea" name="MaxPanelArea" min="1" max="100" step="1" value="50">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="PanelAreaStep">Panel Area Step (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="PanelAreaStep" name="PanelAreaStep" min="1" max="100" step="1" value="5">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="MinStorageCapacity">Min Storage Capacity (0 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="MinStorageCapacity" name="MinStorageCapacity" min="0" max="100" step="1" value="0">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="MaxStorageCapacity">Max Storage Capacity (0 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="MaxStorageCapacity" name="MaxStorageCapacity" min="0" max="100" step="1" value="30">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="StorageCapacityStep">Storage Capacity Step (1 to 100)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="StorageCapacityStep" name="StorageCapacityStep" min="1" max="100" step="1" value="5">      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="NumDays2">Number of days (1 to 365)</label>
+                    </td>
+                    <td style="width:100px;">
+                        <input type="number" id="NumDays2" name="NumDays2" min="1" max="365" step="1" value="365">      
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left">
+                        <input type="checkbox" id="includeClouds2" name="includeClouds2" value="1">
+                        <label for="includeClouds2"> Include Cloud Effects</label>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <button type="button" id="RunExploration" name="RunExploration">Run Exploration</button>     
+        </div>
+    </form>
+</body>
+</html>
